@@ -1,0 +1,55 @@
+{
+  "name": "c-chain-test-app",
+  "version": "0.0.1",
+  "description": "",
+  "author": "",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "pnpm generate:metadata && nest build",
+    "start": "nest start",
+    "dev": "nest start --watch",
+    "generate:metadata": "tsx scripts/generate-metadata.ts",
+    "migrate:create": "mikro-orm migration:create",
+    "migrate": "mikro-orm migration:up",
+    "seeder": "mikro-orm seeder:run -c TransactionSeeder"
+  },
+  "dependencies": {
+    "@mikro-orm/cli": "^6.1.10",
+    "@mikro-orm/core": "^6.1.10",
+    "@mikro-orm/entity-generator": "^6.1.10",
+    "@mikro-orm/migrations": "^6.1.10",
+    "@mikro-orm/nestjs": "^5.2.3",
+    "@mikro-orm/postgresql": "^6.1.10",
+    "@mikro-orm/reflection": "^6.1.10",
+    "@mikro-orm/seeder": "^6.2.1",
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/config": "^3.2.0",
+    "@nestjs/core": "^10.0.0",
+    "@nestjs/platform-express": "^10.0.0",
+    "@nestjs/swagger": "^7.3.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "nest-csv-parser": "^2.0.4",
+    "reflect-metadata": "^0.1.12",
+    "viem": "^2.21.44",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^10.0.0",
+    "@nestjs/schematics": "^10.0.0",
+    "@swc/cli": "^0.1.65",
+    "@swc/core": "^1.3.107",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.7.2",
+    "typescript": "^5.3.3"
+  },
+  "mikro-orm": {
+    "useTsNode": true,
+    "configPaths": [
+      "./src/config/mikroorm.config.ts",
+      "./dist/config/mikroorm.config.js"
+    ],
+    "tsConfigPath": "./tsconfig.mikroorm.json"
+  }
+}
